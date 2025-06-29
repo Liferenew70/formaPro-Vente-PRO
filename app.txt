@@ -1,0 +1,591 @@
+
+
+
+
+commentcaserledosdunefemme: {
+    id: 'commentcaserledosdunefemme',
+    title: "Comment caser le dos d'une femme 🧘‍♀📗",
+    price: 10000,
+    prixPromo: 2500,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Un guide PDF pour soulager les tensions dorsales avec douceur et efficacité.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Apprenez des techniques professionnelles pour soulager les maux de dos spécifiques aux femmes, en tenant compte de l'anatomie féminine.</p>
+        
+        <h3>Techniques enseignées :</h3>
+        <ul>
+            <li>Postures et étirements adaptés 🤸</li>
+            <li>Techniques de relaxation et décontraction 💆‍♀</li>
+            <li>Conseils pour masser sans douleur 👐</li>
+            <li>Exercices préventifs au quotidien 🏋</li>
+            <li>Gestion du stress et impact sur le dos 🧠</li>
+            <li>Solutions pour les problèmes spécifiques (grossesse, etc.) 🤰</li>
+            <li>Utilisation d'accessoires et remèdes naturels 🌿</li>
+            <li>BONUS: Routine complète en vidéo</li>
+        </ul>
+        <p><strong>Format :</strong> PDF explicatif (80 pages illustrées)</p>
+    `,
+    duration: "Lecture libre",
+    instructor: "Spécialiste en bien-être",
+    level: "Tous niveaux",
+    categories: ["livrepdf", "bienetre"],
+    isFeatured: true,
+    popularity: 3
+},
+
+
+
+piraterbasededonnees: {
+    id: 'piraterbasededonnees',
+    title: "Pirater une base de données 🗃💣",
+    price: 30000,
+    prixPromo: 7500,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Apprenez comment les attaques sur bases de données sont menées afin de mieux vous protéger.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Cette formation avancée vous révèle les techniques utilisées par les hackers pour infiltrer les bases de données, afin que vous puissiez mieux sécuriser vos systèmes contre ces attaques.</p>
+        
+        <h3>Contenu stratégique 📂 :</h3>
+        <ul>
+            <li>Exploitation de failles SQL : injections, blind SQL 🔍</li>
+            <li>Techniques complètes de dumping et analyse des données volées 📉</li>
+            <li>Contre-mesures de sécurité avancées pour protéger vos bases 🛡</li>
+            <li>Outils professionnels comme SQLmap et Metasploit</li>
+            <li>Analyse de cas réels de fuites de données</li>
+            <li>Techniques de chiffrement des données sensibles</li>
+            <li>BONUS : Checklist de sécurisation de bases de données</li>
+        </ul>
+        <p><strong>Durée :</strong> 6h intensives avec exercices pratiques</p>
+    `,
+    duration: "6h",
+    instructor: "Expert base de données",
+    level: "Avancé",
+    categories: ["hacking", "bd"],
+    isFeatured: true,
+    popularity: 5
+},
+
+injectionsdsl: {
+    id: 'injectionsdsl',
+    title: "Les injections DSL 🧬💉",
+    price: 25000,
+    prixPromo: 6000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Découvrez les techniques d'injection de code utilisées pour accéder ou perturber des systèmes.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Maîtrisez l'art des injections pour mieux comprendre les vulnérabilités des systèmes et comment les protéger contre ces attaques redoutables.</p>
+        
+        <h3>Thèmes abordés 🧠 :</h3>
+        <ul>
+            <li>SQL Injection : techniques avancées de manipulation de bases 💻</li>
+            <li>Command Injection : prise de contrôle système via inputs 🧾</li>
+            <li>Méthodes de prévention et filtres efficaces 🔐</li>
+            <li>Injection XSS (Cross-Site Scripting)</li>
+            <li>Injection LDAP et NoSQL</li>
+            <li>Outils automatisés d'exploitation</li>
+            <li>BONUS : Laboratoire pratique avec applications vulnérables</li>
+        </ul>
+        <p><strong>Durée :</strong> 5h de démonstration interactive</p>
+    `,
+    duration: "5h",
+    instructor: "Formateur en sécurité",
+    level: "Intermédiaire",
+    categories: ["hacking"],
+    isFeatured: true,
+    popularity: 4
+},
+
+
+
+appenrat: {
+    id: 'appenrat',
+    title: "Transformer une application en RAT 🐀📲",
+    price: 30000,
+    prixPromo: 7000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Découvrez les techniques pour intégrer un RAT dans une application, à but éducatif et défensif.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Cette formation sensible vous révèle comment les hackers transforment des apps légitimes en outils de contrôle à distance, afin que vous puissiez mieux détecter et contrer ces menaces.</p>
+        
+        <h3>Apprentissages clés 🔐 :</h3>
+        <ul>
+            <li>Structure interne d'un RAT et son fonctionnement 📁</li>
+            <li>Techniques avancées d'injection dans une application APK ⚙</li>
+            <li>Méthodes professionnelles de détection et contre-mesures 🛡</li>
+            <li>Analyse de code malveillant</li>
+            <li>Techniques d'obfuscation utilisées par les hackers</li>
+            <li>Laboratoire pratique avec applications test</li>
+            <li>BONUS : Liste des signatures antivirus à éviter</li>
+        </ul>
+        <p><strong>Durée :</strong> 7h avancées en laboratoire sécurisé</p>
+    `,
+    duration: "7h",
+    instructor: "Spécialiste malware",
+    level: "Avancé",
+    categories: ["hacking", "androidhack", "applicationmod", "apkmodandroid"],
+    isFeatured: true,
+    popularity: 5
+},
+
+
+
+seduirefemme: {
+    id: 'seduirefemme',
+    title: "Comment séduire une femme 💘🗣",
+    price: 12000,
+    prixPromo: 3000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Techniques simples et efficaces pour créer une vraie connexion émotionnelle.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Découvrez les secrets d'une séduction authentique et respectueuse qui crée des connexions profondes et durables.</p>
+        
+        <h3>Ce que vous découvrirez 💬 :</h3>
+        <ul>
+            <li>Approche naturelle et respectueuse sans techniques manipulatoires 🌸</li>
+            <li>Compréhension profonde de la psychologie féminine 🧠</li>
+            <li>Gestion de l'attirance et décryptage des signaux non verbaux 🔥</li>
+            <li>Techniques de conversation engageante</li>
+            <li>Création d'une connexion émotionnelle authentique</li>
+            <li>Gestion des rejets et renforcement de la confiance</li>
+            <li>BONUS : Exercices pratiques pour appliquer immédiatement</li>
+        </ul>
+        <p><strong>Durée :</strong> 3h de formation transformative</p>
+    `,
+    duration: "3h",
+    instructor: "Coach en relation humaine",
+    level: "Débutant",
+    categories: ["dev-perso", "bienetre"],
+    isFeatured: true,
+    popularity: 4
+},
+
+
+
+
+
+
+
+mysteresvie: {
+    id: 'mysteresvie',
+    title: "Les mystères de la vie 🌌🔮",
+    price: 15000,
+    prixPromo: 3500,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Une réflexion profonde sur la vie, la mort, l'âme et les forces invisibles.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Ce voyage philosophique explore les plus grands mystères de l'existence humaine à travers les âges et les cultures.</p>
+        
+        <h3>Explorations 🧭 :</h3>
+        <ul>
+            <li>Nature profonde de l'existence humaine et conscience 🤔</li>
+            <li>Lois universelles qui régissent notre réalité 🌐</li>
+            <li>Questions métaphysiques sur l'âme et l'au-delà 🌠</li>
+            <li>Théories sur la réincarnation</li>
+            <li>Synchronicité et coïncidences significatives</li>
+            <li>Expériences de mort imminente</li>
+            <li>BONUS : Bibliographie pour approfondir</li>
+        </ul>
+        <p><strong>Format :</strong> PDF enrichi (120 pages)</p>
+    `,
+    duration: "Lecture libre",
+    instructor: "Auteur spirituel",
+    level: "Tous niveaux",
+    categories: ["dev-perso"],
+    isFeatured: true,
+    popularity: 4
+},
+religionmondepolitique: {
+    id: 'religionmondepolitique',
+    title: "Religion, Monde & Politique 🌍📚",
+    price: 20000,
+    prixPromo: 5000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Un regard croisé sur les enjeux religieux, géopolitiques et historiques.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Cette analyse approfondie décrypte les interactions complexes entre religion, pouvoir politique et conflits mondiaux à travers l'histoire jusqu'à nos jours.</p>
+        
+        <h3>Thèmes explorés 🧩 :</h3>
+        <ul>
+            <li>Religions majeures du monde : christianisme, islam, hindouisme ✝☪🕉</li>
+            <li>Conflits géopolitiques influencés par les facteurs religieux 🌍</li>
+            <li>Histoire moderne et contemporaine des relations Église-État 🧾</li>
+            <li>Influence des lobbies religieux sur les politiques internationales</li>
+            <li>Comparaison des systèmes théocratiques et laïcs</li>
+            <li>Analyse des mouvements religieux extrémistes</li>
+            <li>BONUS : Chronologie des grands événements religio-politiques</li>
+        </ul>
+        <p><strong>Durée :</strong> 5h de contenu PDF + vidéos explicatives</p>
+    `,
+    duration: "5h",
+    instructor: "Professeur histoire géo",
+    level: "Tous niveaux",
+    categories: ["dev-perso"],
+    isFeatured: true,
+    popularity: 5
+},
+
+apprendrerobotique: {
+    id: 'apprendrerobotique',
+    title: "Apprendre la robotique 🤖📐",
+    price: 35000,
+    prixPromo: 9000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Initiez-vous à la conception et à la programmation de robots intelligents.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Plongez dans le monde fascinant de la robotique et apprenez à créer vos propres robots fonctionnels, depuis les bases jusqu'aux concepts avancés.</p>
+        
+        <h3>Modules 👇 :</h3>
+        <ul>
+            <li>Composants électroniques essentiels : capteurs, actionneurs, cartes ⚙</li>
+            <li>Langages de programmation robotique : Python, C++, ROS 🧑‍💻</li>
+            <li>Projet final d'assemblage complet d'un robot fonctionnel 🤖</li>
+            <li>Algorithmes de navigation et intelligence artificielle</li>
+            <li>Conception mécanique et impression 3D</li>
+            <li>Intégration de vision par ordinateur</li>
+            <li>BONUS : Liste de fournisseurs et kits recommandés</li>
+        </ul>
+        <p><strong>Durée :</strong> 12h pratiques en laboratoire virtuel</p>
+    `,
+    duration: "12h",
+    instructor: "Ingénieur en robotique",
+    level: "Débutant à intermédiaire",
+    categories: ["dev-projet", "poo", "dev-web"],
+    isFeatured: true,
+    popularity: 5
+},
+
+commentdevenirriche: {
+    id: 'commentdevenirriche',
+    title: "Comment devenir riche 💰🚀 (PDF)",
+    price: 18000,
+    prixPromo: 4000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Les stratégies financières et habitudes des personnes qui réussissent.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Ce guide révolutionnaire révèle les méthodes concrètes utilisées par les millionnaires self-made pour bâtir et préserver leur fortune.</p>
+        
+        <h3>Thèmes du PDF 📘 :</h3>
+        <ul>
+            <li>Gestion du budget et optimisation fiscale 💳</li>
+            <li>Investissements intelligents : actions, immobilier, crypto 📊</li>
+            <li>Développement d'un mindset gagnant et habitudes riches 🧠</li>
+            <li>Création de multiples sources de revenus</li>
+            <li>Réseautage avec les bonnes personnes</li>
+            <li>Protection du patrimoine acquis</li>
+            <li>BONUS : Études de cas de réussites réelles</li>
+        </ul>
+        <p><strong>Format :</strong> PDF téléchargeable (200 pages denses)</p>
+    `,
+    duration: "Lecture libre",
+    instructor: "Coach financier",
+    level: "Tous niveaux",
+    categories: ["dev-perso", "bienetre"],
+    isFeatured: true,
+    popularity: 5
+},
+
+formationcomptabilite: {
+    id: 'formationcomptabilite',
+    title: "Formation en comptabilité 📊💼",
+    price: 25000,
+    prixPromo: 6000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Maîtrisez les bases de la comptabilité d'entreprise pour mieux gérer vos finances ou travailler en entreprise.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Acquérez des compétences comptables solides qui vous serviront toute votre carrière, que vous soyez entrepreneur ou salarié ambitieux.</p>
+        
+        <h3>Modules 📘 :</h3>
+        <ul>
+            <li>Comptabilité générale : principes et normes 📚</li>
+            <li>Écriture comptable, balance et bilan 📈</li>
+            <li>Analyse approfondie des flux financiers 🔍</li>
+            <li>Fiscalité des entreprises</li>
+            <li>Logiciels comptables professionnels</li>
+            <li>Cas pratiques réels</li>
+            <li>BONUS : Modèles de documents comptables</li>
+        </ul>
+        <p><strong>Durée :</strong> 8h de formation intensive</p>
+    `,
+    duration: "8h",
+    instructor: "Comptable certifié",
+    level: "Débutant à intermédiaire",
+    categories: ["dev-perso"],
+    isFeatured: true,
+    popularity: 5
+},
+
+flutterdev: {
+    id: 'flutterdev',
+    title: "Développement d'applications en Flutter 📱🔥",
+    price: 35000,
+    prixPromo: 9000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Apprenez à créer des applications mobiles multiplateformes avec Flutter et Dart.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Devenez un développeur Flutter accompli et créez des applications natives performantes pour iOS et Android avec un seul codebase.</p>
+        
+        <h3>Ce que vous apprendrez 📱 :</h3>
+        <ul>
+            <li>Introduction complète à Flutter & Dart 💻</li>
+            <li>Création d'interfaces fluides avec les widgets 🧩</li>
+            <li>Navigation avancée, gestion d'état, connexion API 🌐</li>
+            <li>Animation et design responsive</li>
+            <li>Publication sur les stores d'applications</li>
+            <li>Optimisation des performances</li>
+            <li>BONUS : Projet complet avec code source</li>
+        </ul>
+        <p><strong>Durée :</strong> 10h de développement pratique</p>
+    `,
+    duration: "10h",
+    instructor: "Développeur Flutter Senior",
+    level: "Intermédiaire",
+    categories: ["dev-mobile", "dev-web", "front-end"],
+    isFeatured: true,
+    popularity: 5
+},
+
+craxratcreation: {
+    id: 'craxratcreation',
+    title: "Créer des RAT avec CraxRat 🐀⚙",
+    price: 30000,
+    prixPromo: 8000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Formation complète sur la création de Remote Access Trojan à usage éducatif.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Cette formation avancée vous révèle le fonctionnement interne des RAT pour mieux comprendre et contrer ces menaces sérieuses.</p>
+        
+        <h3>Ce que vous apprendrez 🧠 :</h3>
+        <ul>
+            <li>Utilisation approfondie de CraxRat 🛠</li>
+            <li>Génération d'APK malicieux et techniques d'obfuscation 🧬</li>
+            <li>Contre-mesures défensives et considérations éthiques 🛡</li>
+            <li>Analyse de code malveillant</li>
+            <li>Techniques de détection antivirus</li>
+            <li>Laboratoire sécurisé de test</li>
+            <li>BONUS : Scripts de détection de RAT</li>
+        </ul>
+        <p><strong>Durée :</strong> 7h d'atelier technique</p>
+    `,
+    duration: "7h",
+    instructor: "Expert en cybersécurité",
+    level: "Avancé",
+    categories: ["hacking", "androidhack"],
+    isFeatured: true,
+    popularity: 5
+},
+
+blogcomplet: {
+    id: 'blogcomplet',
+    title: "Créer un blog complet 📝🌍",
+    price: 22000,
+    prixPromo: 6000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Apprenez à construire un blog professionnel sans CMS, 100% en HTML/CSS/JS.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Maîtrisez les technologies front-end fondamentales pour créer un blog personnalisé, performant et unique sans dépendre de systèmes préfaits.</p>
+        
+        <h3>Compétences à acquérir 💡 :</h3>
+        <ul>
+            <li>Structure HTML5 sémantique et accessible 🧱</li>
+            <li>Stylisation avancée avec CSS3 et animations 🎨</li>
+            <li>Fonctionnalités dynamiques en JavaScript pur ⚙</li>
+            <li>Intégration d'un système de commentaires</li>
+            <li>Optimisation SEO de base</li>
+            <li>Hébergement et déploiement</li>
+            <li>BONUS : Template premium inclus</li>
+        </ul>
+        <p><strong>Durée :</strong> 8h de codage guidé</p>
+    `,
+    duration: "8h",
+    instructor: "Développeur Front-end",
+    level: "Débutant",
+    categories: ["dev-web", "front-end", "dev-projet"],
+    isFeatured: true,
+    popularity: 5
+},
+
+pooformation: {
+    id: 'pooformation',
+    title: "Programmation Orientée Objet 🧱💡",
+    price: 25000,
+    prixPromo: 6500,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Maîtrisez les principes de la POO pour structurer des projets complexes avec propreté.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Élevez vos compétences en programmation avec cette formation complète sur les paradigmes de la POO, essentiels pour tout développement professionnel.</p>
+        
+        <h3>Thèmes 📚 :</h3>
+        <ul>
+            <li>Classes, objets et encapsulation en profondeur 🛠</li>
+            <li>Héritage, polymorphisme et interfaces 🌐</li>
+            <li>Exercices pratiques en Python et JavaScript 🐍</li>
+            <li>Design patterns fondamentaux</li>
+            <li>Principes SOLID</li>
+            <li>Refactoring de code procédural</li>
+            <li>BONUS : Projet complet de gestion en POO</li>
+        </ul>
+        <p><strong>Durée :</strong> 6h de théorie + 6h de pratique</p>
+    `,
+    duration: "6h",
+    instructor: "Dev Full Stack",
+    level: "Intermédiaire",
+    categories: ["poo", "dev-web", "dev-projet"],
+    isFeatured: true,
+    popularity: 5
+},
+
+
+
+
+
+
+autonomeenligne: {
+    id: 'autonomeenligne',
+    title: "Être autonome en ligne 🌐💪",
+    price: 15000,
+    prixPromo: 4000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Maîtrisez les outils numériques pour apprendre, créer et gagner en autonomie sur le web.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Cette formation révolutionnaire transforme votre façon d'utiliser Internet pour en faire un véritable outil de pouvoir personnel et professionnel.</p>
+        
+        <h3>Révolution digitale en vous 💻 :</h3>
+        <ul>
+            <li>Techniques de recherche avancée sur Google (90% des gens ne les connaissent pas)</li>
+            <li>Accès aux ressources éducatives payantes... gratuitement</li>
+            <li>Automatisation de votre apprentissage avec des outils intelligents</li>
+            <li>Création d'un système personnel de gestion des connaissances</li>
+            <li>Détection des fake news et vérification des sources</li>
+            <li>Optimisation de votre productivité en ligne</li>
+            <li>BONUS : Liste des 50 sites indispensables pour apprendre</li>
+        </ul>
+        <p><strong>Durée :</strong> 4h qui changeront votre vie numérique</p>
+        <p><strong>Niveau :</strong> Débutant</p>
+    `,
+    duration: "4h",
+    instructor: "Coach numérique",
+    level: "Débutant",
+    categories: ["dev-perso", "dev-web"],
+    isFeatured: true,
+    popularity: 5
+},
+
+astucehack: {
+    id: 'astucehack',
+    title: "Astuces et Tutos Hacking 💻🕵",
+    price: 25000,
+    prixPromo: 6500,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Compilation de tutos, outils et astuces utilisés dans le hacking éthique pour mieux sécuriser ses systèmes.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Plongez dans l'esprit d'un hacker éthique avec cette boîte à outils ultime contenant les techniques que les professionnels utilisent réellement.</p>
+        
+        <h3>Arsenal du hacker éthique 🧰 :</h3>
+        <ul>
+            <li>Commandes terminal indispensables pour l'analyse système</li>
+            <li>Techniques d'énumération avancées des réseaux</li>
+            <li>Méthodes de sécurisation proactive de vos serveurs</li>
+            <li>Outils de test d'intrusion open-source</li>
+            <li>Analyse des vulnérabilités courantes</li>
+            <li>Création de votre lab de test sécurisé</li>
+            <li>BONUS : Checklist de sécurisation système complète</li>
+        </ul>
+        <p><strong>Durée :</strong> 6h de formation intensive</p>
+        <p><strong>Niveau :</strong> Intermédiaire</p>
+    `,
+    duration: "6h",
+    instructor: "Formateur sécurité offensive",
+    level: "Intermédiaire",
+    categories: ["hacking"],
+    isFeatured: true,
+    popularity: 5
+},
+
+
+
+teleporteurapp: {
+    id: 'teleporteurapp',
+    title: "Applications de téléportation 📍📲",
+    price: 12000,
+    prixPromo: 3000,
+    fees: 0,
+    image: "assets/images/formations/image.png",
+    description: "Simulez un changement de localisation GPS avec ces applications de téléportation mobile.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Contrôlez votre position GPS comme jamais auparavant avec ces outils puissants qui ouvrent de nouvelles possibilités pour vos applications géolocalisées.</p>
+        
+        <h3>Pouvoirs débloqués 📌 :</h3>
+        <ul>
+            <li>Changer de pays en un clic pour débloquer du contenu</li>
+            <li>Contourner les restrictions géographiques des apps de rencontre</li>
+            <li>Simuler des trajets pour les jeux de géolocalisation</li>
+            <li>Protection de votre vie privée locale</li>
+            <li>Configuration avancée des paramètres GPS</li>
+            <li>Détection et évitement des bans</li>
+            <li>BONUS : Liste des meilleures apps par catégorie</li>
+        </ul>
+        <p><strong>Durée :</strong> 2h de maîtrise totale</p>
+        <p><strong>Niveau :</strong> Débutant</p>
+    `,
+    duration: "2h",
+    instructor: "Expert mobile",
+    level: "Débutant",
+    categories: ["androidhack", "applicationmod"],
+    isFeatured: true,
+    popularity: 4
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

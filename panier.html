@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formations professionnelles en ligne - Développez vos compétences avec FormaPro">
+    <title>FormaPro - Panier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="assets/images/logo.svg">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <style>
+        /* Styles spécifiques au panier */
+        .cart-section {
+            padding: 2rem 0;
+        }
+        
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-item.inactive {
+            opacity: 0.7;
+            background-color: #f9f9f9;
+        }
+        
+        .cart-item.inactive img {
+            filter: grayscale(100%);
+        }
+        
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .item-info {
+            flex: 1;
+        }
+        
+        .item-info h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .item-info p {
+            margin: 0;
+            font-weight: bold;
+            color: #4361ee;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .btn-quantity {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-quantity:hover {
+            background: #f5f5f5;
+        }
+        
+        .quantity {
+            min-width: 20px;
+            text-align: center;
+        }
+        
+        .btn-remove {
+            background: none;
+            border: none;
+            color: #ff4a4a;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+        }
+        
+        .cart-summary {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            align-self: flex-start;
+            position: sticky;
+            top: 1rem;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-row.total {
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-top: 2px solid #4361ee;
+            margin-top: 0.5rem;
+        }
+        
+        .btn-checkout {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-checkout:hover {
+            background: #128C7E;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .empty-cart i {
+            font-size: 3rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        /* Style pour les frais */
+        .fees {
+            color: #ff4a4a;
+            font-weight: bold;
+        }
+        
+        .fees.inactive {
+            color: #666 !important;
+            font-weight: normal;
+            text-decoration: line-through;
+        }
+        
+        .checkbox-item {
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+        
+        .item-select {
+            display: flex;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-item {
+                flex-wrap: wrap;
+            }
+            
+            .item-select {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+    <div class="container">
+        <a href="index.html" class="brand"><img src="assets/images/logoEtd.jpg" title="Accueil" style="border: 1px black solid; border-radius: 19.7px; box-shadow: -5px 2px 5px rgba(3, 7, 18, 0.09), -21px 7px 19px rgba(3, 7, 18, 0.18), -48px 15px 42px rgba(3, 7, 18, 0.26), -84px 27px 74px rgba(3, 7, 18, 0.35), -132px 42px 116px rgba(3, 7, 18, 0.44);" alt="FormaPro" width="180"></a>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" style="font-weight: 600; text-decoration: none; text-transform: uppercase;"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="panier.html" title="aller au panier" class="cart-link active"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+        
+        <div class="mobile-nav">
+            <a href="panier.html" title="aller au panier" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count-mobile">0</span></a>
+        </div>
+    </div>
+    </header>
+
+    <main class="main-content">
+        <section class="section cart-section">
+            <div class="container">
+                <h1 class="section-title"><i class="fas fa-shopping-cart"></i> Votre panier</h1>
+                
+                <div class="cart-container">
+                    <div class="cart-items" id="cart-items">
+                        <!-- Panier vide par défaut -->
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Votre panier est vide</p>
+                            <a href="index.html" class="btn btn-primary">
+                                Explorer nos formations
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <h3>Récapitulatif</h3>
+                        <div class="summary-row">
+                            <span>Sous-total</span>
+                            <span id="subtotal">0 FCFA</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Frais</span>
+                            <span id="fees">0 FCFA</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">0 FCFA</span>
+                        </div>
+                        <button class="btn btn-primary btn-checkout" id="checkout-btn">
+                            <i class="fab fa-whatsapp"></i> Passer commande
+                        </button>
+                        <button class="btn btn-danger" id="empty-cart-btn" style="background-color: #ff4a4a; color: white; margin-top: 10px;">
+                           <i class="fas fa-trash"></i> Vider le panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>FormaPro</h4>
+                    <p>Votre plateforme de formations professionnelles en ligne.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2250595762779" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                        <li><a href="avis.html" target="_blank">Commenter le site</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +225 05 95 76 27 79</li>
+                        <li><i class="fas fa-envelope"></i> alexandersmithfvente@wsym.de</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alexander Smith. Tous droits réservés.</p>
+                <div class="legal-links">
+                    <a href="#">Confidentialité</a>
+                    <a href="#">Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+</body>
+</html>

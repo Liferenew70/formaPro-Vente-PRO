@@ -1,0 +1,4 @@
+pour ajouter des produits, il suffit d'aller le fichier app.js , d'ajouter le produit comme les autres produits , 
+et surtout , dans isFeatured , de mettre "true" si vous voulez afficher le produit et de mettre "false" si vous voulez le masquer.
+et j'ai ajouter une fonctionnalté de pagination qui affiche que 15 produits, ét déclenche une pagination pour les autres produits.
+et surtout la barre de recherche à été otpimiser pour chercher sur tous les produits. 

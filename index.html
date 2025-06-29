@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta proprety="og:title" content="Site de e-Commerce statique">
+    <meta proprety="og:image" content="https://ibb.co/LzqM6rk8" />
+    <meta proprety="Twitter:image" content="https://ibb.co/LzqM6rk8" />
+    <meta proprety="og:description" content="Formations professionnelles en ligne - Développez vos compétences avec FormaPro" /> 
+    <meta proprety="og:url" content="https://liferenew70.github.io/formaPro Vente PRO/" />
+    <meta proprety="og:type" content="website" />
+    <title>FormaPro - Formations Professionnelles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="assets/images/logo.svg">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <style>
+        /* Styles pour le bouton de retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: #3e8e41;
+            transform: translateY(-3px) !important;
+        }
+
+        .back-to-top i {
+            font-size: 20px;
+        }
+
+        /* Styles pour les catégories et sous-catégories */
+        .category-group {
+            position: relative;
+        }
+
+        .parent-category {
+            display: block;
+            padding: 12px 16px;
+            position: relative;
+        }
+
+        .parent-category:after {
+            content: '\f054'; /* Change l'icône pour une flèche droite */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 10px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .subcategories {
+            display: none;
+            position: absolute;
+            left: 100%; /* Positionne à droite du parent */
+            top: 0;
+            min-width: 200px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 0 4px 4px 4px;
+        }
+
+        .category-group:hover .subcategories {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .subcategories a {
+            padding: 10px 16px !important;
+            font-size: 13px !important;
+            border-left: none;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
+        }
+
+        .subcategories a:hover {
+            background-color: #4a6bff;
+            color: white;
+        }
+
+        /* Animation pour l'apparition */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Empêche le menu de disparaître quand on passe sur les sous-catégories */
+        .category-content {
+            min-width: 200px;
+        }
+
+        .category-group:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Styles généraux pour les boutons de filtre */
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .filter-btn.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Conteneur principal de recherche et filtres */
+        .search-filter-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Barre de recherche */
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 30px;
+            padding: 8px 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex-grow: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 8px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .search-box i {
+            color: #777;
+        }
+
+        /* Menu déroulant des catégories */
+        .category-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .category-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .category-btn:hover {
+            background: #4a6bff;
+            color: white;
+        }
+
+        .category-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .category-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .category-content a:hover {
+            background-color: #4a6bff;
+            color: white;
+        }
+
+        .category-dropdown:hover .category-content {
+            display: block;
+        }
+
+        /* Styles pour les actions des cours */
+        .course-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .course-actions .btn {
+            flex: 1;
+            min-width: 120px;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 5px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Bouton WhatsApp spécifique */
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        .btn-whatsapp i {
+            margin-bottom: 2px;
+        }
+
+        /* Styles pour les prix et promotions */
+        .promo-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FFD700;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .course-price-promo {
+            color: #FFD700;
+            font-weight: bold;
+            text-decoration: line-through;
+            margin-right: 5px;
+        }
+
+        .course-price-final {
+            color: #4361ee;
+            font-weight: bold;
+        }
+
+        /* Filtre par plage de prix */
+        .price-range-filter {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .price-range-filter input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100px;
+        }
+
+        .price-range-filter button {
+            padding: 8px 15px;
+            background: #4a6bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Conteneur de titre de section */
+        .section-title-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Message quand aucun résultat */
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 1.1rem;
+            grid-column: 1 / -1;
+        }
+
+        /* Styles pour la pagination */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 2rem;
+        }
+        
+        .pagination {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pagination-btn {
+            padding: 8px 16px;
+            background-color: #4a6bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .pagination-btn:hover:not(:disabled) {
+            background-color: #3a5bef;
+        }
+        
+        .pagination-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .page-numbers {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .page-number {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .page-number.active {
+            background-color: #4a6bff;
+            color: white;
+            border-color: #4a6bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+    <div class="container">
+        <a href="index.html" class="brand"><img src="assets/images/logoEtd.jpg" title="Accueil" style="border: 1px black solid; border-radius: 19.7px; box-shadow: -5px 2px 5px rgba(3, 7, 18, 0.09), -21px 7px 19px rgba(3, 7, 18, 0.18), -48px 15px 42px rgba(3, 7, 18, 0.26), -84px 27px 74px rgba(3, 7, 18, 0.35), -132px 42px 116px rgba(3, 7, 18, 0.44);" alt="FormaPro" width="180"></a>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" style="font-weight: 600; text-decoration: none; text-transform: uppercase;" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="panier.html" title="aller au panier" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+        
+        <div class="mobile-nav">
+            <a href="panier.html" title="aller au panier" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count-mobile">0</span></a>
+        </div>
+    </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Image décorative -->
+        <img src="./assets/images/hero.jpg" alt="Illustration numérique" class="hero-bg">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Formez-vous aux métiers digitaux</h1>
+                <p class="subtitle" style="font-weight: 600;">Des formations pratiques pour booster votre carrière</p>
+                <a href="#NosFormations" class="btn btn-primary">
+                    Découvrir nos formations <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="section featured-courses">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title"><i class="fas fa-star" id="NosFormations"></i> Nos formations populaires</h2>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Rechercher une formation...">
+                </div>
+            </div>
+            
+            <div class="search-filter-container">
+    <div class="filter-buttons">
+        <button class="filter-btn filter-all active" data-filter="all">Tout & Populaire</button>
+        <button class="filter-btn" data-filter="price-asc">Prix croissant</button>
+        <button class="filter-btn" data-filter="price-desc">Prix décroissant</button>
+        <div class="category-dropdown">
+            <button class="category-btn">Catégorie <i class="fas fa-caret-down"></i></button>
+            <div class="category-content">
+                <a href="#" data-category="all">Toutes</a>
+                
+                <!-- Hacking -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="hacking">Hacking</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="pc-hack">PC</a>
+                        <a href="#" data-category="android-hack">Android</a>
+                        <a href="#" data-category="ios-hack">IOS</a>
+                    </div>
+                </div>
+                
+                <!-- Infographie -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="infographie">Infographie</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="infographie-pc">PC</a>
+                        <a href="#" data-category="infographie-android">Android</a>
+                        <a href="#" data-category="infographie-ios">IOS</a>
+                    </div>
+                </div>
+
+                <!-- Dev. Web -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="dev-web">Dev. Web</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="front-end">Front end</a>
+                        <a href="#" data-category="backend">Backend</a>
+                        <a href="#" data-category="full-stack">Full Stack</a>
+                        <a href="#" data-category="dev-mobile">Mobile</a>
+                        <a href="#" data-category="poo">POO</a>
+                        <a href="#" data-category="bd">Base de donnée</a>
+                        <a href="#" data-category="dev-projet">Projet Dev</a>
+                    </div>
+                </div>
+
+                <!-- Dev. Perso -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="dev-perso">Dev. Perso</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="lang">Langue</a>
+                        <a href="#" data-category="sport">Sport</a>
+                        <a href="#" data-category="bien-etre">Bien être</a>
+                    </div>
+                </div>
+                
+                <!-- Application Mod -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="application-mod">Application Mod</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="apk-mod-pc">PC</a>
+                        <a href="#" data-category="apk-mod-android">Android</a>
+                    </div>
+                </div>
+                
+                <!-- Jeux -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="jeux">Jeux</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="jeux-pc">PC</a>
+                        <a href="#" data-category="jeux-android">Android</a>
+                        <a href="#" data-category="jeux-ios">IOS</a>
+                    </div>
+                </div>
+                
+                <!-- Film -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="film">Film</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="animer">Dessin Animé</a>
+                        <a href="#" data-category="film-serie">Film/Série</a>
+                    </div>
+                </div>
+                
+                <!-- Livre & PDF -->
+                <div class="category-group">
+                    <a href="#" class="parent-category" data-category="livre-pdf">Livre & PDF</a>
+                    <div class="subcategories">
+                        <a href="#" data-category="pdf-forma">Formation PDF</a>
+                        <a href="#" data-category="forma-pdf" onclick="window.open('https://forma-pdf.com', '_blank'); return false;">Site de formation</a>
+                    </div>
+                </div>
+                
+                <!-- Accessoires -->
+                <a href="#" data-category="accessoires">Accessoires</a>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <div class="price-range-filter">
+                <span>Prix entre:</span>
+                <input type="number" id="min-price" placeholder="Min" min="0">
+                <span>et</span>
+                <input type="number" id="max-price" placeholder="Max" min="0">
+                <button id="apply-price-range" title="appliquer le filtrage">Appliquer</button>
+                <button id="reset-price-range" title="rétablir les paramètres de filtrage">Réinitialiser</button>
+            </div>
+            
+            <div class="courses-grid" id="courses-container">
+                <!-- Dynamic content from app.js -->
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-container">
+                <div class="pagination">
+                    <button class="pagination-btn" id="prev-page" disabled>
+                        <i class="fas fa-chevron-left"></i> Précédent
+                    </button>
+                    <div class="page-numbers" id="page-numbers"></div>
+                    <button class="pagination-btn" id="next-page">
+                        Suivant <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certifications</h3>
+                    <p>Attestation de réussite pour chaque formation validée</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Experts</h3>
+                    <p>Formateurs professionnels en activité</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Support</h3>
+                    <p>Assistance technique disponible 7j/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>FormaPro</h4>
+                    <p>Votre plateforme de formations professionnelles en ligne.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2250595762779" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                        <li><a href="avis.html" target="_blank">Commenter le site</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +225 05 95 76 27 79</li>
+                        <li><i class="fas fa-envelope"></i> alexandersmithfvente@wsym.de</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alexander Smith. Tous droits réservés.</p>
+                <div class="legal-links">
+                    <a href="#">Confidentialité</a>
+                    <a href="#">Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de retour en haut -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="js/app.js" type="module"></script>
+    <script>
+// Configuration de la pagination
+const PRODUCTS_PER_PAGE = 15;
+let currentPage = 1;
+let totalPages = 1;
+
+// Sauvegarder l'état de la page
+function savePageState() {
+    const state = {
+        page: currentPage,
+        scrollY: window.scrollY,
+        filter: window.currentFilter || 'all',
+        search: document.getElementById('search-input').value || '',
+        minPrice: document.getElementById('min-price').value || '',
+        maxPrice: document.getElementById('max-price').value || '',
+        category: window.currentCategory || 'all'
+    };
+    sessionStorage.setItem('coursesPageState', JSON.stringify(state));
+}
+
+// Restaurer l'état de la page
+function restorePageState() {
+    const savedState = sessionStorage.getItem('coursesPageState');
+    if (savedState) {
+        const state = JSON.parse(savedState);
+        currentPage = state.page || 1;
+        
+        // Restaurer les filtres
+        if (state.filter) {
+            window.currentFilter = state.filter;
+            document.querySelector(`.filter-btn[data-filter="${state.filter}"]`)?.click();
+        }
+        
+        // Restaurer la recherche
+        if (state.search) {
+            document.getElementById('search-input').value = state.search;
+        }
+        
+        // Restaurer les prix
+        if (state.minPrice) document.getElementById('min-price').value = state.minPrice;
+        if (state.maxPrice) document.getElementById('max-price').value = state.maxPrice;
+        
+        // Restaurer la catégorie
+        if (state.category) window.currentCategory = state.category;
+        
+        // Restaurer la position de défilement après un court délai
+        setTimeout(() => {
+            if (state.scrollY) {
+                window.scrollTo(0, state.scrollY);
+            }
+        }, 100);
+    }
+}
+
+// Fonction pour initialiser la pagination
+function initPagination() {
+    if (!window.allFilteredCourses) return;
+    
+    totalPages = Math.ceil(window.allFilteredCourses.length / PRODUCTS_PER_PAGE);
+    const paginationContainer = document.querySelector('.pagination-container');
+    
+    if (totalPages > 1) {
+        paginationContainer.style.display = 'flex';
+    } else {
+        paginationContainer.style.display = 'none';
+    }
+    
+    updatePaginationButtons();
+}
+
+// Fonction pour réinitialiser à la première page
+window.resetToFirstPage = function() {
+    currentPage = 1;
+    updateCoursesDisplay();
+    scrollToTop();
+}
+
+// Fonction pour faire défiler vers le haut
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Fonction pour mettre à jour l'affichage des cours
+window.updateCoursesDisplay = function() {
+    savePageState(); // Sauvegarder l'état avant toute mise à jour
+    
+    const coursesContainer = document.getElementById('courses-container');
+    if (!coursesContainer) return;
+    
+    coursesContainer.innerHTML = '';
+    
+    if (!window.allFilteredCourses || window.allFilteredCourses.length === 0) {
+        coursesContainer.innerHTML = '<p class="no-results">Aucune formation ne correspond à votre recherche.</p>';
+        document.querySelector('.pagination-container').style.display = 'none';
+        return;
+    }
+    
+    // Calculer les produits à afficher pour la page actuelle
+    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, window.allFilteredCourses.length);
+    const coursesToShow = window.allFilteredCourses.slice(startIndex, endIndex);
+    
+    // Afficher les produits
+    coursesToShow.forEach(course => {
+        const courseElement = course.element.cloneNode(true);
+        
+        // Ajouter un gestionnaire d'événements pour sauvegarder l'état avant la navigation
+        const detailLinks = courseElement.querySelectorAll('[href*="produit.html"]');
+        detailLinks.forEach(link => {
+            link.addEventListener('click', savePageState);
+        });
+        
+        coursesContainer.appendChild(courseElement);
+    });
+    
+    updatePaginationButtons();
+}
+
+// Fonction pour mettre à jour les boutons de pagination
+function updatePaginationButtons() {
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    const pageNumbers = document.getElementById('page-numbers');
+    
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+    
+    // Mettre à jour les numéros de page
+    pageNumbers.innerHTML = '';
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+    
+    for (let i = startPage; i <= endPage; i++) {
+        const pageNumber = document.createElement('span');
+        pageNumber.className = 'page-number';
+        if (i === currentPage) pageNumber.classList.add('active');
+        pageNumber.textContent = i;
+        pageNumber.addEventListener('click', () => {
+            currentPage = i;
+            updateCoursesDisplay();
+            scrollToTop();
+        });
+        pageNumbers.appendChild(pageNumber);
+    }
+}
+
+// Écouteurs d'événements pour les boutons de pagination
+document.getElementById('prev-page').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        updateCoursesDisplay();
+        scrollToTop();
+    }
+});
+
+document.getElementById('next-page').addEventListener('click', () => {
+    if (currentPage < totalPages) {
+        currentPage++;
+        updateCoursesDisplay();
+        scrollToTop();
+    }
+});
+
+// Gestion du panier
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialiser le panier s'il n'existe pas
+    if (!localStorage.getItem('cart')) {
+        localStorage.setItem('cart', JSON.stringify([]));
+    }
+    
+    // Mettre à jour le compteur du panier
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-count').textContent = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+        document.getElementById('cart-count-mobile').textContent = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    }
+
+    updateCartCount();
+    
+    // Écouter les changements de panier
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'cart') {
+            updateCartCount();
+        }
+    });
+
+    // Gestion du bouton de retour en haut
+    const backToTopButton = document.getElementById('backToTop');
+    
+    // Afficher/masquer le bouton lors du défilement
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    // Gestion du clic sur le bouton
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Restaurer l'état de la page au chargement
+    restorePageState();
+});
+
+// Écouteur pour sauvegarder l'état avant de quitter la page
+window.addEventListener('beforeunload', savePageState);
+
+// Exposer les fonctions pour app.js
+window.initPagination = initPagination;
+window.updateCoursesDisplay = updateCoursesDisplay;
+window.resetToFirstPage = resetToFirstPage;
+</script>
+</body>
+</html>

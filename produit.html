@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formations professionnelles en ligne - Développez vos compétences avec FormaPro">
+    <title>FormaPro - Détails</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="assets/images/logo.svg">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <style>
+        /* Styles spécifiques à la page produit */
+        .product-detail {
+            padding: 2rem 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #3a56d4;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .product-info h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .original-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6b7280;
+            text-decoration: line-through;
+        }
+
+        .current-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4361ee;
+        }
+
+        .discount-badge {
+            background-color: #FFD700;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .description-container {
+            margin: 2rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .description-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .description-content {
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .description-content h3 {
+            margin: 1rem 0 0.5rem;
+            color: #4361ee;
+            font-size: 1.2rem;
+        }
+
+        .description-content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .description-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-add-to-cart {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #4361ee;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #3a56d4;
+        }
+
+        .btn-add-to-cart.clicked {
+            transform: scale(0.98);
+        }
+
+        .btn-pay-now {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-pay-now:hover {
+            background-color: #128C7E;
+        }
+
+        .product-not-found {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-info h1 {
+                font-size: 1.5rem;
+            }
+
+            .main-image img {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+    <div class="container">
+        <a href="index.html" class="brand"><img src="assets/images/logoEtd.jpg" title="Accueil" style="border: 1px black solid; border-radius: 19.7px; box-shadow: -5px 2px 5px rgba(3, 7, 18, 0.09), -21px 7px 19px rgba(3, 7, 18, 0.18), -48px 15px 42px rgba(3, 7, 18, 0.26), -84px 27px 74px rgba(3, 7, 18, 0.35), -132px 42px 116px rgba(3, 7, 18, 0.44);" alt="FormaPro" width="180"></a>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" style="font-weight: 600; text-decoration: none; text-transform: uppercase;"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="panier.html" title="aller au panier" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+        
+        <div class="mobile-nav">
+            <a href="panier.html" title="aller au panier" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count-mobile">0</span></a>
+        </div>
+    </div>
+    </header>
+
+    <main class="main-content">
+        <section class="section product-detail">
+            <div class="container">
+                <a href="index.html" class="back-link" title="Pour poursuivre vos achats">
+                    <i class="fas fa-arrow-left"></i> Retour aux formations
+                </a>
+                <div class="product-grid">
+                    <div class="product-gallery">
+                        <div class="main-image">
+                            <img id="product-image" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h1 id="product-title"></h1>
+                        <div class="price-container" id="product-price-container">
+                            <!-- Le prix sera inséré ici par JavaScript -->
+                        </div>
+                        <div class="meta-info">
+                            <span><i class="fas fa-clock"></i> <span id="product-duration"></span></span>
+                            <span><i class="fas fa-user-tie"></i> <span id="product-instructor"></span></span>
+                            <span><i class="fas fa-chart-line"></i> <span id="product-level"></span></span>
+                        </div>
+                        <div class="description-container">
+                            <h2>Description complète</h2>
+                            <div class="description-content" id="product-description"></div>
+                        </div>
+                        <button class="btn btn-primary btn-add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Ajouter au panier
+                        </button>
+                        <button class="btn btn-whatsapp btn-pay-now" id="pay-now-btn">
+                            <i class="fab fa-whatsapp"></i> Payer maintenant
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>FormaPro</h4>
+                    <p>Votre plateforme de formations professionnelles en ligne.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2250595762779" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                        <li><a href="avis.html" target="_blank">Commenter le site</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +225 05 95 76 27 79</li>
+                        <li><i class="fas fa-envelope"></i> alexandersmithfvente@wsym.de</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alexander Smith. Tous droits réservés.</p>
+                <div class="legal-links">
+                    <a href="#">Confidentialité</a>
+                    <a href="#">Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <script src="js/product.js" type="module"></script>
+<script src="js/product.js" type="module"></script>
+<script type="module">
+    import { PRODUCTS } from './js/app.js';
+
+    // Fonction pour payer via WhatsApp
+    function payNow(productId) {
+        const product = PRODUCTS[productId];
+        
+        if (!product) {
+            alert("Produit non trouvé");
+            return;
+        }
+        
+        const prixAffiché = product.prixPromo || product.price;
+        const total = prixAffiché + (product.fees || 0);
+        
+        const message = `Bonjour, je souhaite commander la formation suivante :
+Formation: ${product.title}
+${product.prixPromo ? `Prix original: ${product.price.toLocaleString()} FCFA\nPrix promo: ${product.prixPromo.toLocaleString()} FCFA` : `Prix: ${product.price.toLocaleString()} FCFA`}
+Frais: ${(product.fees || 0).toLocaleString()} FCFA
+Total: ${total.toLocaleString()} FCFA
+
+Merci de me fournir les informations de paiement.`;
+
+        if (confirm(`Confirmez-vous la commande de "${product.title}" pour ${total.toLocaleString()} FCFA?`)) {
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/2250595762779?text=${encodedMessage}`, '_blank');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const productId = new URLSearchParams(window.location.search).get('id');
+        const payNowBtn = document.getElementById('pay-now-btn');
+
+        if (payNowBtn && productId) {
+            payNowBtn.addEventListener('click', () => payNow(productId));
+        }
+    });
+</script>
+</body>
+</html>
