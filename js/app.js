@@ -2455,6 +2455,38 @@ apkpro300: {
     popularity: 6
 },
 
+apprendrerobotique: {
+    id: 'apprendrerobotique',
+    title: "Apprendre la robotique 🤖📐",
+    price: 35000,
+    prixPromo: 9000,
+    fees: 0,
+    image: "assets/images/formations/robotique.jpg",
+    description: "Initiez-vous à la conception et à la programmation de robots intelligents.",
+    fullDescription: `
+        <h3>Description complète :</h3>
+        <p>Plongez dans le monde fascinant de la robotique et apprenez à créer vos propres robots fonctionnels, depuis les bases jusqu'aux concepts avancés.</p>
+        
+        <h3>Modules 👇 :</h3>
+        <ul>
+            <li>Composants électroniques essentiels : capteurs, actionneurs, cartes ⚙</li>
+            <li>Langages de programmation robotique : Python, C++, ROS 🧑‍💻</li>
+            <li>Projet final d'assemblage complet d'un robot fonctionnel 🤖</li>
+            <li>Algorithmes de navigation et intelligence artificielle</li>
+            <li>Conception mécanique et impression 3D</li>
+            <li>Intégration de vision par ordinateur</li>
+            <li>BONUS : Liste de fournisseurs et kits recommandés</li>
+        </ul>
+        <p><strong>Durée :</strong> 12h pratiques en laboratoire virtuel</p>
+    `,
+    duration: "12h",
+    instructor: "Ingénieur en robotique",
+    level: "Débutant à intermédiaire",
+    categories: ["dev-projet", "poo", "dev-web"],
+    isFeatured: true,
+    popularity: 6
+},
+
 
     // Ajoutez ici tous vos autres produits...
 };
